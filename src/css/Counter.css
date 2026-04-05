@@ -1,0 +1,82 @@
+:root {
+    --counter-border: #2563eb;
+    --counter-bg: #ffffff;
+    --counter-text: #111827;
+    --counter-muted: #4b5563;
+    --counter-button: #2563eb;
+    --counter-button-alt: #1d4ed8;
+}
+
+.counter-card {
+    border: 2px solid var(--counter-border);
+    border-radius: 16px;
+    padding: 1rem;
+    max-width: 240px;
+    width: 100%;
+    background: var(--counter-bg);
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    position: relative;
+}
+
+.counter-card__title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--counter-text);
+}
+
+.counter-card__value {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--counter-text);
+    text-align: center;
+}
+
+.counter-card__controls {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.counter-card__button {
+    flex: 1;
+    border: none;
+    border-radius: 999px;
+    color: #ffffff;
+    padding: 0.85rem 1rem;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.counter-card__button:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.05);
+}
+
+.counter-card__button--decrease {
+    background: var(--counter-button);
+}
+
+.counter-card__button--increase {
+    background: var(--counter-button-alt);
+}
+
+.counter-card__delete {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--counter-muted);
+    padding: 0;
+}
+
+.counter-card__delete img {
+    width: 20px;
+    height: 20px;
+}
