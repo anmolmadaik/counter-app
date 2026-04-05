@@ -1,6 +1,7 @@
 
 import Counter from "./Counter"
 import CounterDialog from "./CounterDialog"
+import CounterAdd from "./CounterAdd"
 import { useState, useEffect } from 'react'
 import { v4 as uuidv4 } from 'uuid';
 import "../css/CounterRow.css"
@@ -8,11 +9,9 @@ import "../css/CounterRow.css"
 
 export default function CounterRow() {
 
-    let localCounter = JSON.parse(localStorage.getItem('counter') || "[]");
-
     let [showDialog, setShowDialog] = useState(false);
 
-    let [counters, setCounters] = useState(localCounter);
+    let [counters, setCounters] = useState(JSON.parse(localStorage.getItem('counter') || "[]"));
 
     useEffect(() => {
         saveToLocalStorage()
@@ -96,9 +95,7 @@ export default function CounterRow() {
                 }
             )}
             {counters.length === 0 && <div className="counter-row__empty">Click + to get started</div>}
-            <div className="counter-card counter-card--add">
-                <div className="counter-card__add" onClick={onAdd}>+</div>
-            </div>
+            <CounterAdd onAdd={onAdd}/>
             {showDialog ? <CounterDialog onCancel={onCancel} onOK={onOK} /> : null}
         </div>
     )
